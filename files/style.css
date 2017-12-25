@@ -1,28 +1,57 @@
-.keys:not(:last-of-type) {
-    margin-bottom: 4px;
-}
-.calculator button {
-    width: 25px;
+body{  
+  background-image: url("img/bg.jpg");
+  padding: 30px 0px;
 }
 .calculator {
-    border: 1px solid #D6D6D6;
-    padding: 10px;
-    width: 134px;
-    display: inline-block;
-    background-color: #F5F5F5;
+  margin: auto;
+  min-width: 280px;
+}
+.button {  
+  width: 65px;  
+  height: 65px;
+  margin: 0px -2px;
+  border: none;
+  outline:none;
+  background-color: rgba(255, 255, 255, 0);
+  display: inline-block;
+  font-size: 25px;  
+  color: rgb(250, 235, 215);
+}
+div {
+  text-align: center;  
+}
+.button:hover {
+  background-color: rgba(242, 242, 242, 0.1);  
+}
+.button:active {
+  background-color: rgba(242, 242, 242, 0.3);
+}
+.button.op:hover {
+  background-color: rgba(206, 49, 117, 0.2);
+}
+.button.op:active {
+  background-color: rgba(206, 49, 117, 0.5);
+}
+.null {
+  width: 130px;
 }
 .screen input {
-    border: 1px solid #d9d9d9;
-    border-top: 1px solid #c0c0c0;
-    color: #333;
-    padding: 5px;
-    margin-bottom: 5px;
-    outline: none;
-    width: 100%;
+  border: none;
+  height: 50px;
+  width: 250px;
+  text-align: right;
+  padding: 0px 5px;
+  background-color: rgba(250, 250, 250, 0);
+  color: #FAEBD7;  
+}
+#screen2 {
+  font-size: 25px;
+}
+#screen1 {
+  font-size: 40px;
+  border-bottom: 0.5px solid #FAEBD7;  
+}
+.n {
+  font-weight:bold;
 }
 
-/* Dont add the CSS below */
-.demo {
-     text-align: center;
-     margin-top: 50px;
- }

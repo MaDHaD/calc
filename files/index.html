@@ -4,113 +4,49 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
-    <script src="script.js"></script>
+
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculator</title>
 </head>
 <body>
-<div class="demo">
-
-
-    <div class="calculator">
-        <div class="screen"><input id="scr" type="text" /></div>
-        <div class="keypad" id="calc">
-            <div class="keys">
-                <button type="button" class="btn btn-info btn-xs" data-b="but">7</button>
-                <button type="button" class="btn btn-info btn-xs" data-b="but">8</button>
-                <button type="button" class="btn btn-info btn-xs" data-b="but">9</button>
-                <button type="button" class="btn btn-warning btn-xs" data-b="op">/</button>
-            </div>
-            <div class="keys">
-                <button type="button" class="btn btn-info btn-xs" data-b="but">4</button>
-                <button type="button" class="btn btn-info btn-xs" data-b="but">5</button>
-                <button type="button" class="btn btn-info btn-xs" data-b="but">6</button>
-                <button type="button" class="btn btn-warning btn-xs" data-b="op">*</button>
-            </div>
-            <div class="keys">
-                <button type="button" class="btn btn-info btn-xs" data-b="but">1</button>
-                <button type="button" class="btn btn-info btn-xs" data-b="but">2</button>
-                <button type="button" class="btn btn-info btn-xs" data-b="but">3</button>
-                <button type="button" class="btn btn-warning btn-xs" data-b="op">-</button>
-            </div>
-            <div class="keys">
-                <button type="button" class="btn btn-info btn-xs" data-b="but">0</button>
-                <button type="button" class="btn btn-info btn-xs" data-b="clr">C</button>
-                <button type="button" class="btn btn-info btn-xs" data-b="res">=</button>
-                <button type="button" class="btn btn-warning btn-xs" data-b="op">+</button>
-            </div>
-        </div>
-    </div>
-
-
+<div class="calculator" id="calc">
+  <div class="screen">
+    <input type="text" id="screen2" readonly><br>
+    <input type="text" id="screen1" readonly>
+  </div>  
+  <div class="keys">
+    <button class="button" data-b="clr">C</button>
+    <button class="button" data-b="ce">CE</button>
+    <button class="button" data-b="del"><</button>
+    <button class="button op" value="/" data-b="op">÷</button>
+  </div>
+  <div class="keys">
+    <button class="button n" value="7" data-b="but">7</button>
+    <button class="button n" value="8" data-b="but">8</button>
+    <button class="button n" value="9" data-b="but">9</button>
+    <button class="button op" value="*" data-b="op">×</button>
+  </div>
+  <div class="keys">
+    <button class="button n" value="4" data-b="but">4</button>
+    <button class="button n" value="5" data-b="but">5</button>
+    <button class="button n" value="6" data-b="but">6</button>
+    <button class="button op" value="-" data-b="op">-</button>
+  </div>
+  <div class="keys">
+    <button class="button n" value="1" data-b="but">1</button>
+    <button class="button n" value="2" data-b="but">2</button>
+    <button class="button n" value="3" data-b="but">3</button>
+    <button class="button op" value="+" data-b="op">+</button>
+  </div>
+  <div class="keys">
+    <button class="button null n" value="0" data-b="but">0</button>    
+    <button class="button" value="." data-b="dec">.</button>
+    <button class="button op" value="=" data-b="res">=</button>
+  </div>     
 </div>
-<script>
-    var scr = document.getElementById('scr');
 
+<script src="script.js"></script>
 
-
-    function Calc(e) {
-        var operation = {
-            "+": function (x, y) { return parseInt(x) + parseInt(y); },
-            "-": function (x, y) { return x - y; },
-            "*": function (x, y) { return x * y; },
-            "/": function (x, y) { return x / y; }
-        };
-
-        var bufer = bufer2 = oper = '';
-
-        function clear() {
-            bufer = '';
-            scr.value = '';
-        }
-
-        this.but = function(j) {
-            bufer += j.innerHTML;
-            scr.value += j.innerHTML;
-        };
-
-        this.op = function(j) {
-
-            if(bufer2) {
-                bufer2 = operation[oper](bufer2, bufer);
-                oper = j.innerHTML;
-                scr.value = bufer2;
-            }
-            else {
-                oper = j.innerHTML;
-                //alert( oper );
-                bufer2 = bufer;
-            }
-
-            clear();
-            //alert( oper );
-
-        };
-
-        this.res = function() {
-            scr.value = operation[oper](bufer2, bufer);
-            //alert( operation[oper](bufer2, bufer) );
-        };
-
-        this.clr = function() {
-            bufer = bufer2 = '';
-            scr.value = '';
-        };
-
-        var self = this;
-
-        e.onclick = function(el) {
-            var t = el.target;
-            var b = t.getAttribute('data-b');
-            if( b ) {
-                self[b](t);
-            }
-        }
-    };
-
-
-
-    new Calc(calc);
-</script>
 </body>
 </html>
